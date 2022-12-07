@@ -9,8 +9,7 @@ class CalorieCounter
     file = IO.readlines(@input).join("\n").split("\n\n\n\n")
     file = file.map do |elf|
       elf.split("\n\n").map(&:to_i)
-    end
-    file = file.map(&:sum)
+    end.map(&:sum)
 
     @input = file.sort.reverse
   end
@@ -22,6 +21,6 @@ class CalorieCounter
 
   def top_three
     normalize
-    p @input[0] + @input[1] + @input[2]
+    @input[0] + @input[1] + @input[2]
   end
 end
